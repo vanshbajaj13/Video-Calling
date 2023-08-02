@@ -17,9 +17,8 @@ __dirname = path.resolve();
 
 
 const io = new Server( {
-  cors:{
-    origins:["http://127.0.0.1:5000","https://face-time.onrender.com/"],
-  }
+  cors: true,
+  origins:["http://127.0.0.1:5000","https://face-time.onrender.com/"],
 });
 
 var server = require('http').createServer(app);
@@ -61,6 +60,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(8000, () => {
+server.listen(5000, () => {
   console.log("server started on \n http://localhost:8000");
 });
