@@ -26,6 +26,9 @@ var server = require('http').createServer(app);
 
 // io.set('origins', '*:*');
 
+
+
+
 io.listen(server);
 
 const emailToSocketIdMap = new Map();
