@@ -17,7 +17,9 @@ __dirname = path.resolve();
 
 
 const io = new Server(8000, {
-  cors: true,
+  cors:{
+    origins:["http://127.0.0.1:5000","https://face-time.onrender.com/"],
+  }
 });
 
 const emailToSocketIdMap = new Map();
