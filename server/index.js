@@ -63,6 +63,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(5000, () => {
+server.listen(8000, () => {
   console.log("server started on \n http://localhost:5000");
 });
