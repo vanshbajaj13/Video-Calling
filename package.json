@@ -2,9 +2,9 @@
   "name": "videocalling",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "cd ./server && node index.js",
     "client": "npm start --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clientinstall": "npm install --prefix client",
