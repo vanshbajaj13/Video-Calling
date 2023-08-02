@@ -7,11 +7,11 @@ app.use(express.json());
 __dirname = path.resolve();
 
 
-  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.use(express.static(path.join(__dirname, "../client/build")));
 
   // handle all routes other than defined by us above
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "..","client", "build", "index.html"));
   });
 
 
