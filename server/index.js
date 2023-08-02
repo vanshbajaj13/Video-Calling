@@ -7,6 +7,8 @@ const io = new Server(8000, {
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
 
+console.log("started");
+
 io.on("connection", (socket) => {
   // console.log(`Socket Connected`, socket.id);
   socket.on("room:join", (data) => {
