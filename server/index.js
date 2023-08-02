@@ -18,12 +18,13 @@ __dirname = path.resolve();
 
 const io = new Server( {
   cors: true,
-  origins:["http://127.0.0.1:5000","https://face-time.onrender.com","https://face-time.onrender.com/"],
+  origins : "*:*"
+  // origins:["http://127.0.0.1:5000","https://face-time.onrender.com","https://face-time.onrender.com/"],
 });
 
 var server = require('http').createServer(app);
 
-io.set('origins', '*:*');
+// io.set('origins', '*:*');
 
 io.listen(server);
 
@@ -63,5 +64,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(5000, () => {
-  console.log("server started on \n http://localhost:8000");
+  console.log("server started on \n http://localhost:5000");
 });
