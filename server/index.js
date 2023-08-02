@@ -1,4 +1,19 @@
+const express = require("express");
 const { Server } = require("socket.io");
+const path = require("path");
+
+const app = express();
+app.use(express.json());
+__dirname = path.resolve();
+
+
+  app.use(express.static(path.join(__dirname, "/client/build")));
+
+  // handle all routes other than defined by us above
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+
 
 const io = new Server(8000, {
   cors: true,
@@ -38,4 +53,9 @@ io.on("connection", (socket) => {
     // console.log("peer:nego:done", ans);
     io.to(to).emit("peer:nego:final", { from: socket.id, ans });
   });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log("server started on \n http://localhost:5000");
 });
