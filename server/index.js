@@ -16,11 +16,15 @@ __dirname = path.resolve();
   });
 
 
-const io = new Server(8000, {
+const io = new Server( {
   cors:{
     origins:["http://127.0.0.1:5000","https://face-time.onrender.com/"],
   }
 });
+
+var server = require('http').createServer(app);
+
+io.listen(server);
 
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
@@ -57,6 +61,6 @@ io.on("connection", (socket) => {
   });
 });
 
-app.listen(5000, () => {
-  console.log("server started on \n http://localhost:5000");
+server.listen(8000, () => {
+  console.log("server started on \n http://localhost:8000");
 });
