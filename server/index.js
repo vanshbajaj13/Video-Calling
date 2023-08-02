@@ -3,6 +3,7 @@ const { Server } = require("socket.io");
 const path = require("path");
 
 const app = express();
+// app.use(cors());
 app.use(express.json());
 __dirname = path.resolve();
 
@@ -54,7 +55,6 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(5000, () => {
   console.log("server started on \n http://localhost:5000");
 });
