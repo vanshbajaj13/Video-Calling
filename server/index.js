@@ -2,6 +2,7 @@ const { Server } = require("socket.io");
 
 const io = new Server(8000, {
   cors: true,
+  origin : "https://face-time.onrender.com"
 });
 
 const emailToSocketIdMap = new Map();
