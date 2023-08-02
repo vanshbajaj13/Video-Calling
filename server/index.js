@@ -24,9 +24,6 @@ const io = new Server( {
 
 var server = require('http').createServer(app);
 
-// io.set('origins', '*:*');
-
-
 
 
 io.listen(server);
@@ -34,10 +31,10 @@ io.listen(server);
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
 
-console.log("started");
+// console.log("started");
 
 io.on("connection", (socket) => {
-  console.log(`Socket Connected`, socket.id);
+  // console.log(`Socket Connected`, socket.id);
   socket.on("room:join", (data) => {
     const { email, room } = data;
     emailToSocketIdMap.set(email, socket.id);
@@ -56,16 +53,16 @@ io.on("connection", (socket) => {
   });
 
   socket.on("peer:nego:needed", ({ to, offer }) => {
-    console.log("peer:nego:needed", offer);
+    // console.log("peer:nego:needed", offer);
     io.to(to).emit("peer:nego:needed", { from: socket.id, offer });
   });
 
   socket.on("peer:nego:done", ({ to, ans }) => {
-    console.log("peer:nego:done", ans);
+    // console.log("peer:nego:done", ans);
     io.to(to).emit("peer:nego:final", { from: socket.id, ans });
   });
 });
 
 server.listen(8000, () => {
-  console.log("server started on \n http://localhost:5000");
+  console.log("server started on \n http://localhost:8000");
 });

@@ -12,7 +12,6 @@ const LobbyScreen = () => {
   const handleSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
-      console.log("send initiated");
       socket.emit("room:join", { email, room });
     },
     [email, room, socket]
