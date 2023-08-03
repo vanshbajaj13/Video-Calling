@@ -3,7 +3,6 @@ const { Server } = require("socket.io");
 const path = require("path");
 
 const app = express();
-// app.use(cors());
 app.use(express.json());
 __dirname = path.resolve();
 
@@ -19,7 +18,6 @@ __dirname = path.resolve();
 const io = new Server( {
   cors: true,
   origins : "*:*"
-  // origins:["http://127.0.0.1:5000","https://face-time.onrender.com","https://face-time.onrender.com/"],
 });
 
 var server = require('http').createServer(app);
@@ -31,7 +29,7 @@ io.listen(server);
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
 
-// console.log("started");
+console.log("started");
 
 io.on("connection", (socket) => {
   // console.log(`Socket Connected`, socket.id);
